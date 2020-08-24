@@ -8,12 +8,23 @@ const $noteList = $(".list-container .list-group");
 let activeNote = {};
 
 // A function for getting all notes from the db
-const getNotes = () => {
-  return $.ajax({
+const getNotes = async () => {
+  console.log("Getting Notes");
+  let data = await $.ajax({
     url: "/api/notes",
     method: "GET",
   });
+  console.log(data);
+  return data;
 };
+// A function for getting all notes from the db
+// const getNotes = () => {
+//   console.log("Getting Notes");
+//   return $.ajax({
+//     url: "/api/notes",
+//     method: "GET",
+//   });
+// };
 
 // A function for saving a note to the db
 const saveNote = (note) => {
@@ -131,7 +142,8 @@ const renderNoteList = (notes) => {
     const $li = create$li(note.title).data(note);
     noteListItems.push($li);
   });
-
+  console.log("Appending a note");
+  console.log(noteListItems);
   $noteList.append(noteListItems);
 };
 
