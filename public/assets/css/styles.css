@@ -2,6 +2,17 @@ html, body {
   height: 100%;
   margin: 0;
   padding: 0;
+  background-color: grey;
+}
+
+.gradient-background {
+  background: #000000;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #0f9b0f, #000000);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #0f9b0f, #000000); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.terminal-input {
+  background-color: #000000;
 }
 
 .save-note {
@@ -16,7 +27,8 @@ html, body {
 }
 
 .note-textarea, .note-title {
-  color: #000000;
+  background-color: #000000;
+  color: #0f9b0f;
   width: 100%;
   outline: none;
   border: none;
@@ -39,6 +51,7 @@ html, body {
 }
 
 .list-container .card {
+  background-color: grey;
   height: calc(100vh - 70px);
   border-bottom: none;
   border-bottom-right-radius: 0;
@@ -63,6 +76,7 @@ html, body {
 }
 
 .list-container .list-group-item {
+  background-color: lightgrey;
   border-left: none;
   border-right: none;
   padding: 20px;
