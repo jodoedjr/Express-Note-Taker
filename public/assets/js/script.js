@@ -38,8 +38,8 @@ const renderActiveNote = () => {
   $saveNoteBtn.hide();
 
   if (activeNote.id) {
-    $noteTitle.attr("readonly", true);
-    $noteText.attr("readonly", true);
+    $noteTitle.attr("readonly", false);//$noteTitle.attr("readonly", true);
+    $noteText.attr("readonly", false);//$noteText.attr("readonly", true);
     $noteTitle.val(activeNote.title);
     $noteText.val(activeNote.text);
   } else {
@@ -58,8 +58,16 @@ const handleNoteSave = function () {
   };
 
   saveNote(newNote).then(() => {
-    getAndRenderNotes();
-    renderActiveNote();
+    if (activeNote.id) { // if user attempts to save a note that already exists
+      deleteNote(activeNote.id).then(() => { // save a new note and delete the old one
+        activeNote = {}; // after old note is deleted, clear active note
+        getAndRenderNotes(); // render new list of notes
+        renderActiveNote(); // render the active note - empty main panel matches behaviour of saving a new notew
+      });
+    } else { // if new note without id
+      getAndRenderNotes();
+      renderActiveNote();
+    }
   });
 };
 
