@@ -1,1 +1,7 @@
-[{"title":"Example Note Title","text":"Example Note Text","id":1}]
+[
+    {
+        "title": "Example Note Title",
+        "text": "--You can edit this note and save it by clicking the save icon in the upper right corner! (this will save a new note, and delete the existing one!)\n\n--You can create a new note (without saving the open note) by clicking the pencil icon in the upper right corner.\n\n--You can select an existing note to view (without saving the open note) by clicking on the note card in the left column. ",
+        "id": 1
+    }
+]
