@@ -37,21 +37,36 @@ app.get("/api/notes", async function(req, res){
     });   
     //let test = [{"title":"Test Title","text":"Test text", "id": 1}];    
 });
+
+
 // POST /api/notes
 app.post("/api/notes", async function(req, res){
-    let newNote = JSON.parse(req.body);
-    console.log("newNote from user:");
-    console.log(newNote);
+    let noteArray = [];
+    let status = false;
+    let newNote = req.body;
     newNote.id = Date.now(); // id notes by current timestamp at time of POST
-    let status = await fs.appendFile(path.join(__dirname, "/db/db.json"), newNote, function(err){
+    
+    fs.readFile(path.join(__dirname, "/db/db.json"), function(err, data){
         if(err){
             console.log(err);
-            return false;
         }
-        return true;
-    });
-    res.json(status);
+        noteArray = JSON.parse(data);
+        //return data;
+        noteArray.push(newNote);
+        fs.writeFile(path.join(__dirname, "/db/db.json"), JSON.stringify(noteArray), async function(err){
+            if(err){
+                console.log("ERROR on file append!");
+                console.log(err);
+                res.json(false); //false
+                return;
+            }
+            res.json(true);
+            return;
+        });
+    });  
 });
+
+
 // DELETE /api/notes/:id
 app.delete("/api/notes/:id", async function(req, res){
     const id = req.params.id;
