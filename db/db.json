@@ -1,12 +1,1 @@
-[
-    {
-        "title": "Test Title",
-        "text": "Test text",
-        "id": 1
-    },
-    {
-        "title": "CURIOSITY STREAM",
-        "text": "IF YOU WANT TO KNOW MORE!",
-        "id": 1598322363890
-    }
-]
+[{"title":"Test Title","text":"Test text","id":1}]
