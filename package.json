@@ -22,5 +22,6 @@
   "bugs": {
     "url": "https://github.com/jodoedjr/Express-Note-Taker/issues"
   },
-  "homepage": "https://github.com/jodoedjr/Express-Note-Taker#readme"
+  "homepage": "https://github.com/jodoedjr/Express-Note-Taker#readme",
+  "devDependencies": {}
 }
